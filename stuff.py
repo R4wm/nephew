@@ -15,6 +15,7 @@ snek = ChatBot("Snooter the Civil War Snek")
 
 #ChatBot Training - Lists and Corpus
 trainer = ListTrainer(snek)
+
 convo1 = ["Hello, how are you?",
           "As good as I can be. What about you?",
           "I'm good! I've had quite a day.",
@@ -120,6 +121,7 @@ def get_total_sentiment(user_input):
     words = user_input.lower().split(" ")
     for word in words:
         a += float(sentiment_value_dictionary.get((word), 0.0))
+        
     return a
        
        

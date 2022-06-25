@@ -60,3 +60,8 @@ pip install spacy
 
 python -m spacy download en
 ```
+
+copy chatterbox required files to dir  
+```bash
+0 @fake:[~/github/chatterbot-corpus]:$ cp -rv chatterbot_corpus /home/rmintz87/
+```
