@@ -1,9 +1,13 @@
+#!/usr/bin/env python3
+
 #Imports
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.trainers import ListTrainer
 import string
 
+import spacy
+nlp = spacy.load("en_core_web_sm")
 
 #Chatbot k
 snek = ChatBot("Snooter the Civil War Snek")
@@ -119,30 +123,32 @@ def get_total_sentiment(user_input):
     return a
        
        
-       
-#Intro/Greeting
-user_input = input("Enter Name:")
-print("I am Snooter the Civil War Snek, here to teach you about the Civil War!")
-print("To exit, please type the word 'exit'")
-print("Hello, pleasure to meet you!")
-user_input = ""
+def main():       
+    #Intro/Greeting
+    user_input = input("Enter Name:")
+    print("I am Snooter the Civil War Snek, here to teach you about the Civil War!")
+    print("To exit, please type the word 'exit'")
+    print("Hello, pleasure to meet you!")
+    user_input = ""
 
-#Continues Conversation
-while True:
-    x = user_input
-    global a
-    user_input = input()
-    if user_input == "exit":
-        print("Conversation Terminated. Hope you learned something new!")
-        break
-    get_total_sentiment(user_input)
-    if a > 1.5:
-      snek.learn_response(snek_reply,x)
-      print("Yay! So happy to help! :)")
+    #Continues Conversation
+    while True:
+        x = user_input
+        global a
+        user_input = input()
+        if user_input == "exit":
+            print("Conversation Terminated. Hope you learned something new!")
+            break
+        get_total_sentiment(user_input)
+        if a > 1.5:
+            snek.learn_response(snek_reply, x)
+            print("Yay! So happy to help! :)")
      
-    snek_reply = snek.get_response(user_input)
-    print(snek_reply)
+        snek_reply = snek.get_response(user_input)
+        print(snek_reply)
 
+if __name__ == '__main__':
+    main()
 '''
 #Citations - Thanks to all my sources for the info!
 
